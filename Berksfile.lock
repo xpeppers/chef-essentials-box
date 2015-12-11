@@ -1,0 +1,15 @@
+DEPENDENCIES
+  chef_workstation
+    git: git://github.com/chef-training/chef_workstation.git
+    revision: c5511e871466ae560a938d7e602d14f73da03795
+
+GRAPH
+  chef-dk (3.1.0)
+    dmg (~> 2.2)
+  chef_workstation (0.1.1)
+    chef-dk (>= 0.0.0)
+    sudo (>= 0.0.0)
+    yum (>= 0.0.0)
+  dmg (2.3.0)
+  sudo (2.7.2)
+  yum (3.8.2)
