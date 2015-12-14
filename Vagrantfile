@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.push.define "local", strategy: "local-exec" do |push|
-    push.inline = "vagrant package --output chef-essentials/chef-essentials.box"
+    push.inline = "vagrant package --output chef-essentials.box"
   end
 
   config.push.define "remote", strategy: "atlas" do |push|
