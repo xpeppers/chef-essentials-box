@@ -1,0 +1,41 @@
+I, [2015-12-16T16:22:44.234969 #8542]  INFO -- Kitchen: -----> Starting Kitchen (v1.4.2)
+I, [2015-12-16T16:22:44.340841 #8542]  INFO -- Kitchen: -----> Creating <default-centos-67>...
+E, [2015-12-16T16:28:04.867513 #8542] ERROR -- Kitchen: ------Exception-------
+E, [2015-12-16T16:28:04.868013 #8542] ERROR -- Kitchen: Class: Kitchen::ActionFailed
+E, [2015-12-16T16:28:04.868186 #8542] ERROR -- Kitchen: Message: Failed to complete #create action: [Expected process to exit with [0], but received '1'
+---- Begin output of sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid ----
+STDOUT: 4003c301754622dbd9f74be37dbdd5070626fb7b4cd46e2b83a20d01943dbd50
+STDERR: Error response from daemon: Cannot start container 4003c301754622dbd9f74be37dbdd5070626fb7b4cd46e2b83a20d01943dbd50: [8] System error: exec: "/usr/sbin/sshd": stat /usr/sbin/sshd: no such file or directory
+---- End output of sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid ----
+Ran sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid returned 1]
+E, [2015-12-16T16:28:04.868372 #8542] ERROR -- Kitchen: ---Nested Exception---
+E, [2015-12-16T16:28:04.868494 #8542] ERROR -- Kitchen: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2015-12-16T16:28:04.868611 #8542] ERROR -- Kitchen: Message: Expected process to exit with [0], but received '1'
+---- Begin output of sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid ----
+STDOUT: 4003c301754622dbd9f74be37dbdd5070626fb7b4cd46e2b83a20d01943dbd50
+STDERR: Error response from daemon: Cannot start container 4003c301754622dbd9f74be37dbdd5070626fb7b4cd46e2b83a20d01943dbd50: [8] System error: exec: "/usr/sbin/sshd": stat /usr/sbin/sshd: no such file or directory
+---- End output of sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid ----
+Ran sudo -E docker -H unix:///var/run/docker.sock run -d -p 22 0b6c3ada0a3c /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid returned 1
+E, [2015-12-16T16:28:04.868734 #8542] ERROR -- Kitchen: ------Backtrace-------
+E, [2015-12-16T16:28:04.868895 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/shell_out.rb:73:in `rescue in run_command'
+E, [2015-12-16T16:28:04.869149 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/shell_out.rb:61:in `run_command'
+E, [2015-12-16T16:28:04.869290 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/driver/ssh_base.rb:328:in `run_command'
+E, [2015-12-16T16:28:04.869404 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/kitchen-docker-2.3.0/lib/kitchen/driver/docker.rb:136:in `docker_command'
+E, [2015-12-16T16:28:04.869516 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/kitchen-docker-2.3.0/lib/kitchen/driver/docker.rb:295:in `run_container'
+E, [2015-12-16T16:28:04.869627 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/kitchen-docker-2.3.0/lib/kitchen/driver/docker.rb:105:in `create'
+E, [2015-12-16T16:28:04.869741 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:424:in `public_send'
+E, [2015-12-16T16:28:04.869854 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:424:in `block in perform_action'
+E, [2015-12-16T16:28:04.869991 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:488:in `call'
+E, [2015-12-16T16:28:04.870155 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:488:in `synchronize_or_call'
+E, [2015-12-16T16:28:04.870321 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:453:in `block in action'
+E, [2015-12-16T16:28:04.870497 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2015-12-16T16:28:04.870638 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:452:in `action'
+E, [2015-12-16T16:28:04.870758 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:424:in `perform_action'
+E, [2015-12-16T16:28:04.870881 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:352:in `create_action'
+E, [2015-12-16T16:28:04.871011 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:341:in `block in transition_to'
+E, [2015-12-16T16:28:04.871143 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:340:in `each'
+E, [2015-12-16T16:28:04.871281 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:340:in `transition_to'
+E, [2015-12-16T16:28:04.871485 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/instance.rb:138:in `converge'
+E, [2015-12-16T16:28:04.871620 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/command.rb:176:in `public_send'
+E, [2015-12-16T16:28:04.871747 #8542] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.4.2/lib/kitchen/command.rb:176:in `block (2 levels) in run_action'
+E, [2015-12-16T16:28:04.871889 #8542] ERROR -- Kitchen: ----------------------

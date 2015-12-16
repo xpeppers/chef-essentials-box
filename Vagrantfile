@@ -10,7 +10,8 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision :chef_zero, run: "always"  do |chef|
-    chef.add_recipe "chef_workstation::full_stack"
+    chef.add_recipe "chef_workstation::default"
+    chef.add_recipe "chef_workstation::docker"
     chef.json = {
       "chef_workstation" => {
         "chefdk" => {
@@ -19,6 +20,8 @@ Vagrant.configure(2) do |config|
       }
     }
   end
+
+  config.vm.provision "shell", path: "provision.sh", run: "always"
 
   config.push.define "local", strategy: "local-exec" do |push|
     push.inline = "vagrant package --output chef-essentials.box"

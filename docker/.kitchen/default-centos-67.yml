@@ -1,0 +1,3 @@
+---
+ssh_key: "/vagrant/docker/.kitchen/docker_id_rsa"
+image_id: 0b6c3ada0a3c
