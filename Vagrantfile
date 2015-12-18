@@ -9,7 +9,9 @@ Vagrant.configure(2) do |config|
     vb.memory = "1024"
   end
 
-  config.vm.provision :chef_zero, run: "always"  do |chef|
+  config.vm.provision "shell", inline: "echo 'exclude=kernel*' >> /etc/yum.conf"
+
+  config.vm.provision :chef_zero  do |chef|
     chef.add_recipe "chef_workstation::default"
     chef.add_recipe "chef_workstation::docker"
     chef.json = {
@@ -21,7 +23,7 @@ Vagrant.configure(2) do |config|
     }
   end
 
-  config.vm.provision "shell", path: "provision.sh", run: "always"
+  config.vm.provision "shell", path: "provision.sh"
 
   config.push.define "local", strategy: "local-exec" do |push|
     push.inline = "vagrant package --output chef-essentials.box"
