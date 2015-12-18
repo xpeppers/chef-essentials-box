@@ -1,8 +1,9 @@
 #!/bin/bash -e
 
-vagrant up --provision
-
 rm -f chef-essentials.box
+
+vagrant up
+
 vagrant push local
 vagrant box add --force --name xpeppers/chef-essentials chef-essentials.box
 
