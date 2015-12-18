@@ -10,7 +10,7 @@ RUN GEM_HOME=$BUSSER_ROOT/gems GEM_PATH=$BUSSER_ROOT/gems GEM_CACHE=$BUSSER_ROOT
 RUN GEM_HOME=$BUSSER_ROOT/gems GEM_PATH=$BUSSER_ROOT/gems GEM_CACHE=$BUSSER_ROOT/gems/cache /opt/chef/embedded/bin/gem install serverspec --no-rdoc --no-ri
 RUN GEM_HOME=$BUSSER_ROOT/gems GEM_PATH=$BUSSER_ROOT/gems GEM_CACHE=$BUSSER_ROOT/gems/cache $BUSSER_ROOT/gems/bin/busser setup
 RUN GEM_HOME=$BUSSER_ROOT/gems GEM_PATH=$BUSSER_ROOT/gems GEM_CACHE=$BUSSER_ROOT/gems/cache $BUSSER_ROOT/gems/bin/busser plugin install busser-serverspec
-RUN chmod -R 775 $BUSSER_ROOT
+RUN chmod -R 777 $BUSSER_ROOT
 
 RUN echo -e '#!/bin/sh\n/usr/bin/yum --disablerepo=* $@ || true' >> /usr/local/bin/yum
 RUN chmod 775 /usr/local/bin/yum
