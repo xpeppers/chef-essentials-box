@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+vagrant destroy --force
+vagrant up
+vagrant halt
+VBoxManage sharedfolder remove chef-essentials --name vagrant
+VBoxManage export chef-essentials -o chef-essentials.ova
