@@ -9,6 +9,8 @@ Vagrant.configure(2) do |config|
     vb.name = "chef-essentials"
     vb.cpus = "2"
     vb.memory = "1024"
+    vb.customize ["modifyvm", :id, "--vram", "10"]
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
 
   config.vbguest.auto_update = true

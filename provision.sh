@@ -4,13 +4,16 @@ set -e
 
 echo '' > /etc/yum.conf
 
-yum install -y epel-release kernel-devel kernel-headers dkms tree git nano vim emacs httpd
+yum install -y yum-utils epel-release kernel-devel kernel-headers dkms tree git nano vim emacs httpd
 yum groupinstall -y "Development Tools"
 yum install -y xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-mouse xorg-x11-fonts-100dpi \
   xorg-x11-server-Xorg xorg-x11-server-common xorg-x11-server-utils xorg-x11-xinit openbox Terminal
 
 /sbin/sysctl -w net.ipv4.ip_forward=1
 service docker restart
+
+usermod -a -G docker vagrant
+usermod -a -G vboxsf vagrant
 
 echo "xrandr --output VGA-0 --auto --primary --mode 1024x768" > /home/vagrant/.xprofile
 echo "exec openbox-session" > /home/vagrant/.xinitrc
@@ -24,6 +27,7 @@ docker rmi -f $(docker images -q)
 docker build -t xpeppers/chef-essentials ./
 
 yum clean all
+mv /etc/yum.repos.d /etc/yum.repos.disabled
 
 cd /
 umount /vagrant
