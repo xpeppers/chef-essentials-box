@@ -3,10 +3,10 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "bento/centos-6.7"
-  config.vm.hostname = "chef-essentials"
+  config.vm.hostname = "chef-training"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "chef-essentials"
+    vb.name = "chef-training"
     vb.cpus = "2"
     vb.memory = "1024"
     vb.customize ["modifyvm", :id, "--vram", "10"]

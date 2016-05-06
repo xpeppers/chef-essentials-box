@@ -2,9 +2,10 @@
 
 set -e
 
+mv /etc/yum.conf /etc/yum.conf.disabled
 echo '' > /etc/yum.conf
 
-yum install -y yum-utils epel-release kernel-devel kernel-headers dkms tree git nano vim emacs httpd
+yum install -y yum-utils epel-release kernel-devel kernel-headers dkms tree git nano vim emacs httpd ntp ntpdate php perl
 yum groupinstall -y "Development Tools"
 yum install -y xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-mouse xorg-x11-fonts-100dpi \
   xorg-x11-server-Xorg xorg-x11-server-common xorg-x11-server-utils xorg-x11-xinit openbox Terminal
@@ -26,10 +27,10 @@ chown -R vagrant:vagrant /home/vagrant
 
 cd /vagrant
 docker rmi -f $(docker images -q)
-docker build -t xpeppers/chef-essentials ./
+docker build -t xpeppers/chef-training ./
 
 yum clean all
-mv /etc/yum.repos.d /etc/yum.repos.disabled
+mv /etc/yum.repos.d /etc/yum.repos.d.disabled
 
 cd /
 umount /vagrant
