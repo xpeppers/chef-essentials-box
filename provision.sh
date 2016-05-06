@@ -17,9 +17,11 @@ usermod -a -G vboxsf vagrant
 
 echo "xrandr --output VGA-0 --auto --primary --mode 1024x768" > /home/vagrant/.xprofile
 echo "exec openbox-session" > /home/vagrant/.xinitrc
-echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' > /home/vagrant/.bash_profile
+echo 'startx' > /home/vagrant/.bash_profile
 mkdir -p  /home/vagrant/.config/openbox
-echo 'setxkbmap it && terminal &' > /home/vagrant/.config/openbox/autostart
+echo 'VBoxClient --clipboard; setxkbmap it; terminal &' > /home/vagrant/.config/openbox/autostart
+echo 'sudo mount -t vboxsf -o uid=500,gid=500 $1 $2' > /home/vagrant/mount-share.sh
+chmod 755 /home/vagrant/mount-share.sh
 chown -R vagrant:vagrant /home/vagrant
 
 cd /vagrant
