@@ -5,7 +5,7 @@ set -e
 mv /etc/yum.conf /etc/yum.conf.disabled
 echo '' > /etc/yum.conf
 
-yum install -y yum-utils epel-release kernel-devel kernel-headers dkms tree git nano vim emacs httpd ntp ntpdate php perl
+yum install -y yum-utils epel-release kernel-devel kernel-headers dkms cowsay tree git nano vim emacs httpd ntp ntpdate php perl
 yum groupinstall -y "Development Tools"
 
 /sbin/sysctl -w net.ipv4.ip_forward=1

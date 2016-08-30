@@ -1,6 +1,6 @@
 FROM centos:6.7
 
-RUN yum install -y yum-utils sudo openssh-server openssh-clients which curl tree git nano vim emacs httpd
+RUN yum install -y yum-utils sudo openssh-server openssh-clients which cowsay curl tree git nano vim emacs httpd
 RUN curl -L https://www.chef.io/chef/install.sh | bash
 
 ENV BUSSER_ROOT /tmp/verifier
