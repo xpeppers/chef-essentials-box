@@ -30,4 +30,5 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", path: "provision.sh"
+  config.vm.provision "shell", path: "provision-local.sh"
 end
